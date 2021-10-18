@@ -1,0 +1,43 @@
+import axios from "../axios";
+
+const handleLoginApi = (email, password) => {
+    return axios.post('/api/login', { email: email, password: password });
+}
+const getAllUsers = (inputId) => {
+    return axios.get(`/api/get-all-users?id=${inputId}`)
+}
+const createNewUserService = (data) => {
+    return axios.post('/api/create-new-user', data)
+}
+const deleteUserService = (userId) => {
+    return axios.delete('/api/delete-user', {
+        data: {
+            id: userId
+        }
+    })
+}
+const editUserService = (data) => {
+    return axios.put('/api/edit-user', data)
+}
+const getAllCodeService = (inputData) => {
+    return axios.get(`/api/allcode?type=${inputData}`)
+}
+const getTopDoctorHomeService = (limit) => {
+    return axios.get(`/api/top-doctor-home?limit=${limit}`)
+}
+
+const getAllDoctorsService = () => {
+    return axios.get(`/api/get-all-doctors`)
+}
+const saveDetailDoctorService = (data) => {
+    return axios.post('/api/save-infor-doctor', data)
+}
+const getDetailInforDoctor = (userId) => {
+    return axios.get(`/api/get-detail-doctor-by-id?id=${userId}`)
+}
+export {
+    handleLoginApi, getAllUsers,
+    createNewUserService, deleteUserService, getAllCodeService, editUserService,
+    getTopDoctorHomeService, getAllDoctorsService,
+    saveDetailDoctorService, getDetailInforDoctor,
+}

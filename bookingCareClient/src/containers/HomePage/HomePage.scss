@@ -1,0 +1,183 @@
+.slick-prev{
+    border: 2px solid #d7d7d7 !important;
+    z-index: 1000 !important;
+    left: -24px !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+    &:hover{
+        background: #eceaea !important;
+    }
+}
+.slick-prev::before,
+.slick-next::before{
+    font-family: FontAwesome !important;
+    color: red !important;
+}
+
+.slick-next{
+    border: 1px solid #d7d7d7 !important;
+    right: -10px !important;
+    z-index: 1000 !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+
+    &:hover{
+        background: #eceaea !important;
+    }
+}
+.slick-disable{
+    display: none !important;
+}
+.section-share{
+    border-bottom: 3px solid #efeef5;
+    &.section-specialty{
+        background: #fff;
+    }
+    &.section-outstanding-doctor{
+        background: #fff;
+    }
+    &.section-medical-facility{
+        background: #f5f5f5;
+    }
+    &.section-handbook{
+        background: #f5f5f5;
+    }
+    &.section-about{
+        background: #fff;
+        height: 450px !important;
+    }
+    .section-body{
+        cursor: pointer;
+
+        
+        .section-customize{
+            &:hover{
+                color: #45C3D2;
+            }
+            .bg-image{
+                width: 250px;
+                height: 150px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+
+                &.section-specialty{
+                    background-image: url('../../assets/Specialty/120331-co-xuong-khop.jpg');
+                }
+                &.section-medical-facility{
+                    background-image: url('../../assets/093035-benh-vien-thu-cuc-1.jpg');
+                }
+                &.section-outstanding-doctor{
+                    border-radius: 50%;
+                    width: 120px;
+                    height: 120px;
+                }
+                &.section-handbook{
+                    background-image: url('../../assets/221918-test-pcr-covid.jpg');
+                }
+            }
+        }
+    }
+}
+
+.section-share{
+    height: 330px;
+
+    .section-container{
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header{
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section{
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .btn-section{
+                float: right;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                display: block;
+                background: #ebebeb;
+                color: black;
+                cursor: pointer;
+                text-transform: uppercase;
+                margin-right: 12px;
+                &:hover{
+                    color: #fff;
+                    background: #f7d800;
+                }
+            }
+    }
+}
+}
+.section-outstanding-doctor{
+    .outer-bg{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        .bg{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+    }
+    .section-customize{
+        padding: 5px;
+        cursor: pointer;
+        .customize-border{
+           padding: 10px;
+           border: 1px solid #eee;
+        }
+    }
+}
+
+.home-footer{
+    text-align: center;
+    padding: 8px;
+    background: #91909070;
+    margin: 0;
+    a{
+        text-decoration: unset;
+        
+    }
+    p{
+        margin-bottom: 0;
+    }
+    
+}
+.section-about{
+    margin: 0 100px;
+
+    .section-about-header{
+        padding: 20px 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .section-about-content{
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        .content-left{
+            width: 60%;
+        }
+        .content-right{
+            width: 40%;
+
+            p{
+                font-weight: 600;
+                font-style: italic;
+                margin-top: 20px;
+            }
+        }
+    }
+}
