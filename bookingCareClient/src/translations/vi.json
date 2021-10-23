@@ -1,7 +1,7 @@
 {
     "menu": {
         "admin": {
-            "header": "Hệ thống",
+            "manage-user": "Hệ thống",
             "crud": "CRUD USER",
             "crud-redux": "CRUD with Redux",
             "manage-doctor": "Quản lý bác sĩ",
@@ -12,6 +12,9 @@
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh"
         }
     },
     "homeheader": {
@@ -54,5 +57,19 @@
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật",
         "more-infor": "Xem thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày",
+        "save": "Lưu thông tin"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "not-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác",
+            "choose": "Chọn",
+            "book-free": "và đặt (miễn phí)"
+        }
     }
 }

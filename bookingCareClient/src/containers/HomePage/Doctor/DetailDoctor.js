@@ -4,17 +4,23 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import './DetailDoctor.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
+import DoctorSchedule from './DoctorSchedule';
 import { getDetailInforDoctor } from '../../../services/userService';
 class DetailDoctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            detailDoctor: {}
+            detailDoctor: {},
+            currentDoctorId: -1
         }
     }
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id
+            this.setState({
+                currentDoctorId: id
+            })
+
             let res = await getDetailInforDoctor(id);
             if (res && res.errCode === 0) {
                 this.setState({
@@ -53,7 +59,14 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className="schedule-doctor">
+                        <div className="content-left">
+                            <DoctorSchedule
+                                doctorId={this.state.currentDoctorId}
+                            />
+                        </div>
+                        <div className="content-right">
 
+                        </div>
                     </div>
                     <div className="detail-infor-doctor">
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML &&

@@ -24,6 +24,11 @@ class Login extends Component {
             password: event.target.value
         })
     }
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            this.handleLogin();
+        }
+    }
     handleLogin = async () => {
         this.setState({
             errMessage: ''
@@ -60,13 +65,16 @@ class Login extends Component {
                             <label>Username:</label>
                             <input type="text" className="form-control"
                                 placeholder="Enter your name" value={this.state.username}
-                                onChange={(event) => this.handleOnChangeUsername(event)} />
+                                onChange={(event) => this.handleOnChangeUsername(event)}
+                                onKeyDown={(event) => this.handleKeyDown(event)}
+                            />
                         </div>
                         <div className="col-12 form-group login-input">
                             <label>Password:</label>
                             <input type="password" className="form-control"
                                 placeholder="Enter your password"
-                                value={this.state.password} onChange={(event) => this.handleOnChangePassword(event)} />
+                                value={this.state.password} onChange={(event) => this.handleOnChangePassword(event)}
+                                onKeyDown={(event) => this.handleKeyDown(event)} />
                         </div>
                         <div className="col-12" style={{ color: 'red' }}>
                             {this.state.errMessage}

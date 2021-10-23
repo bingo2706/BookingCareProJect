@@ -1,5 +1,5 @@
 import axios from "../axios";
-
+import { toast } from "react-toastify";
 const handleLoginApi = (email, password) => {
     return axios.post('/api/login', { email: email, password: password });
 }
@@ -35,9 +35,16 @@ const saveDetailDoctorService = (data) => {
 const getDetailInforDoctor = (userId) => {
     return axios.get(`/api/get-detail-doctor-by-id?id=${userId}`)
 }
+const saveBulkScheduledoctor = (data) => {
+    return axios.post('/api/bulk-create-schedule', data)
+}
+const getScheduleDoctorByDate = (doctorId, date) => {
+    return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`)
+}
 export {
     handleLoginApi, getAllUsers,
     createNewUserService, deleteUserService, getAllCodeService, editUserService,
     getTopDoctorHomeService, getAllDoctorsService,
     saveDetailDoctorService, getDetailInforDoctor,
+    saveBulkScheduledoctor, getScheduleDoctorByDate
 }

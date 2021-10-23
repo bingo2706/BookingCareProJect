@@ -253,3 +253,25 @@ export const saveDetailDoctor = (data) => {
         }
     }
 }
+
+export const fetchTimeStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("TIME");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_HOURS_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_HOURS_FAILED
+                });
+            }
+        } catch (error) {
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_SCHEDULE_HOURS_FAILED
+            });
+        }
+    }
+}
