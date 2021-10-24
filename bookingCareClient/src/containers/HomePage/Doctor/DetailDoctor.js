@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import './DetailDoctor.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
 import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfor from './DoctorExtraInfor';
 import { getDetailInforDoctor } from '../../../services/userService';
 class DetailDoctor extends Component {
     constructor(props) {
@@ -65,7 +66,7 @@ class DetailDoctor extends Component {
                             />
                         </div>
                         <div className="content-right">
-
+                            <DoctorExtraInfor doctorId={this.state.currentDoctorId} />
                         </div>
                     </div>
                     <div className="detail-infor-doctor">

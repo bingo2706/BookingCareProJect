@@ -1,6 +1,6 @@
 import db from "../models/index";
 require('dotenv').config();
-import _ from 'lodash';
+import _, { reject } from 'lodash';
 const MAX_NUMBER_SCHEDULE = process.env.MAX_NUMBER_SCHEDULE
 let getTopDoctorHome = (limit) => {
     return new Promise(async (resolve, reject) => {
@@ -49,7 +49,9 @@ let getAllDoctors = () => {
 let saveDetailInforDoctor = (inputData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown || !inputData.action) {
+            if (!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown || !inputData.action
+                || !inputData.selectedPrice || !inputData.selectedProvince || !inputData.selectedPayment || !inputData.nameClinic || !inputData.addressClinic
+            ) {
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing parameter'
@@ -62,6 +64,7 @@ let saveDetailInforDoctor = (inputData) => {
                         description: inputData.description,
                         doctorId: inputData.doctorId
                     })
+
                 }
                 else if (inputData.action === 'UPDATE') {
                     let doctorMarkdown = await db.Markdown.findOne({
@@ -75,6 +78,33 @@ let saveDetailInforDoctor = (inputData) => {
 
                         await doctorMarkdown.save()
                     }
+                }
+                let doctorInfor = await db.Doctor_Infor.findOne({
+                    where: {
+                        doctorId: inputData.doctorId
+
+                    },
+                    raw: false
+                })
+                if (doctorInfor) {
+                    doctorInfor.priceId = inputData.selectedPrice;
+                    doctorInfor.provinceId = inputData.selectedProvince;
+                    doctorInfor.paymentId = inputData.selectedPayment;
+                    doctorInfor.addressClinic = inputData.addressClinic;
+                    doctorInfor.nameClinic = inputData.nameClinic;
+                    if (inputData.note) {
+                        doctorInfor.note = inputData.note
+                    }
+                    await doctorInfor.save()
+                } else {
+                    await db.Doctor_Infor.create({
+                        priceId: inputData.selectedPrice,
+                        provinceId: inputData.selectedProvince,
+                        paymentId: inputData.selectedPayment,
+                        addressClinic: inputData.addressClinic,
+                        nameClinic: inputData.nameClinic,
+                        doctorId: inputData.doctorId
+                    })
                 }
                 resolve({
                     errCode: 0,
@@ -107,8 +137,22 @@ let getDetailDoctorById = (userId) => {
                             model: db.Markdown,
                             attributes: ['description', 'contentHTML', 'contentMarkdown']
                         },
+
                         {
                             model: db.Allcode, as: 'positionData', attributes: ['valueEn', 'valueVi']
+                        },
+                        {
+                            model: db.Doctor_Infor,
+                            attributes: {
+                                exclude: ['id', 'doctorId']
+                            },
+                            include: [
+
+                                { model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi'] },
+                                { model: db.Allcode, as: 'provinceData', attributes: ['valueEn', 'valueVi'] },
+                                { model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi'] }
+
+                            ]
                         },
                     ],
                     raw: false,
@@ -199,11 +243,45 @@ let getScheduleByDate = (doctorId, date) => {
         }
     })
 }
+let getExtraInforDoctorById = (doctorId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!doctorId) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter'
+                })
+            } else {
+                let data = await db.Doctor_Infor.findOne({
+                    where: { doctorId: doctorId },
+                    attributes: {
+                        exclude: ['id', 'doctorId']
+                    },
+                    include: [
+                        { model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi'] },
+                        { model: db.Allcode, as: 'provinceData', attributes: ['valueEn', 'valueVi'] },
+                        { model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi'] }
+                    ],
+                    raw: false,
+                    nest: true
+                })
+                if (!data) data = {}
+                resolve({
+                    errCode: 0,
+                    data: data
+                })
+            }
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
 module.exports = {
     getTopDoctorHome: getTopDoctorHome,
     getAllDoctors: getAllDoctors,
     saveDetailInforDoctor: saveDetailInforDoctor,
     getDetailDoctorById: getDetailDoctorById,
     bulkCreateSchedule: bulkCreateSchedule,
-    getScheduleByDate: getScheduleByDate
+    getScheduleByDate: getScheduleByDate,
+    getExtraInforDoctorById: getExtraInforDoctorById
 }

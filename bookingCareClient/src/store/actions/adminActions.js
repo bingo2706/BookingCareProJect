@@ -275,3 +275,67 @@ export const fetchTimeStart = () => {
         }
     }
 }
+
+export const getDoctorPrice = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("PRICE");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PRICE_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PRICE_FAILED
+                })
+            }
+        } catch (error) {
+            dispatch({
+                type: actionTypes.FETCH_DOCTOR_PRICE_FAILED
+            })
+        }
+    }
+}
+export const getDoctorPayment = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("PAYMENT");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PAYMENT_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PAYMENT_FAILED
+                })
+            }
+        } catch (error) {
+            dispatch({
+                type: actionTypes.FETCH_DOCTOR_PAYMENT_FAILED
+            })
+        }
+    }
+}
+export const getDoctorProvince = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("PROVINCE");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PROVINCE_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_DOCTOR_PROVINCE_FAILED
+                })
+            }
+        } catch (error) {
+            dispatch({
+                type: actionTypes.FETCH_DOCTOR_PROVINCE_FAILED
+            })
+        }
+    }
+}

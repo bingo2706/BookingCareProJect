@@ -2,8 +2,7 @@
     "menu": {
         "admin": {
             "manage-user": "Hệ thống",
-            "crud": "CRUD USER",
-            "crud-redux": "CRUD with Redux",
+            "crud": "Quản lý người dùng",
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
             "clinic": "Phòng khám",
@@ -52,7 +51,8 @@
         "position": "Chức danh",
         "image": "Ảnh đại diện",
         "save": "Thêm mới",
-        "edit": "Cập nhật"
+        "edit": "Cập nhật",
+        "title": "Quản lý người dùng"
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật",
@@ -70,6 +70,31 @@
             "not-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác",
             "choose": "Chọn",
             "book-free": "và đặt (miễn phí)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "ĐỊA CHỈ KHÁM",
+            "price": "Giá khám",
+            "detail": "Xem chi tiết",
+            "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức",
+            "hide-price": "Ẩn bảng giá"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Tạo thêm thông tin cho bác sĩ",
+            "choose-doctor": "Chọn bác sĩ",
+            "infor-intro": "Thông tin giới thiệu",
+            "save-infor": "Lưu thông tin",
+            "edit-infor": "Sửa thông tin",
+            "choose-price": "Giá khám bệnh",
+            "choose-payment": "Phương thức thanh toán",
+            "choose-province": "Tỉnh thành",
+            "choose-price-1": "Chọn giá khám bệnh",
+            "choose-payment-1": "Chọn phương thức thanh toán",
+            "choose-province-1": "Chọn tỉnh thành",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú"
         }
     }
 }

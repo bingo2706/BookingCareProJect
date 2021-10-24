@@ -2,8 +2,7 @@
     "menu": {
         "admin": {
             "manage-user": "System",
-            "crud": "CRUD USER",
-            "crud-redux": "CRUD with Redux",
+            "crud": "Manage User",
             "manage-doctor": "Manage doctors",
             "manage-admin": "Manage admins",
             "clinic": "Clinics",
@@ -52,7 +51,8 @@
         "position": "Position",
         "image": "Avatar",
         "save": "Save",
-        "edit": "Edit"
+        "edit": "Edit",
+        "title": "Manage User"
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
@@ -70,6 +70,31 @@
             "not-schedule": "The doctor does not have an appointment during this time, please choose another time",
             "choose": "Choose",
             "book-free": "and book (free)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "ADDRESS OF EXAMINATION",
+            "price": "Examination price",
+            "detail": "See details",
+            "payment": "The patient can pay the cost in the form of:",
+            "hide-price": "Hide price list"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create more information doctors",
+            "choose-doctor": "Choose doctor",
+            "infor-intro": "Introduction",
+            "save-infor": "Save infor",
+            "edit-infor": "Edit infor",
+            "choose-price": "Medical examination price",
+            "choose-payment": "Payment methods",
+            "choose-province": "Province",
+            "choose-price-1": "Choose medical examination price",
+            "choose-payment-1": "Choose payment methods",
+            "choose-province-1": "Choose province",
+            "name-clinic": "Clinic name",
+            "address-clinic": "Clinic address",
+            "note": "note"
         }
     }
 }
