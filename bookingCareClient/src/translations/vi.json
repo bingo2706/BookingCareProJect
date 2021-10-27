@@ -56,7 +56,12 @@
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật",
-        "more-infor": "Xem thêm"
+        "more-infor": "Xem thêm",
+        "specialty": "Chuyên khoa phổ biến",
+        "facility": "Cơ sở y tế nổi bật",
+        "handbook": "Cẩm nang",
+        "media": "Truyền thông nói về",
+        "media-content": "Có ý kiến cho rằng, các thông tin về bác sĩ và cơ sở y tế đầy rẫy trên Internet. Và người bệnh cũng không gặp khó khăn gì trong việc tìm hiểu thông tin và đặt lịch khám với bác sĩ, cơ sở y tế.Vậy tại sao người dùng lại cần đặt lịch khám thông qua hệ thống đặt khám như BookingCare?"
     },
     "manage-schedule": {
         "title": "Quản lý kế hoạch khám bệnh của bác sĩ",

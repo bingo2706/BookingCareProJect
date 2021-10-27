@@ -46,15 +46,32 @@ let getAllDoctors = () => {
         }
     })
 }
+let checkRequiredFields = (inputData) => {
+    let arr = ['doctorId', 'contentHTML', 'contentMarkdown',
+        'action', 'selectedPrice', 'selectedProvince', 'selectedPayment',
+        'nameClinic', 'addressClinic', 'specialtyId']
+    let isValid = true;
+    let element = ''
+    for (let i = 0; i < arr.length; i++) {
+        if (!inputData[arr[i]]) {
+            isValid = false;
+            element = arr[i];
+            break;
+        }
+    }
+    return {
+        isValid: isValid,
+        element: element
+    }
+}
 let saveDetailInforDoctor = (inputData) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown || !inputData.action
-                || !inputData.selectedPrice || !inputData.selectedProvince || !inputData.selectedPayment || !inputData.nameClinic || !inputData.addressClinic
-            ) {
+            let checkObj = checkRequiredFields(inputData)
+            if (checkObj.isValid === false) {
                 resolve({
                     errCode: 1,
-                    errMessage: 'Missing parameter'
+                    errMessage: `Missing parameter: ${checkObj.element}`
                 })
             } else {
                 if (inputData.action === 'CREATE') {
@@ -92,6 +109,7 @@ let saveDetailInforDoctor = (inputData) => {
                     doctorInfor.paymentId = inputData.selectedPayment;
                     doctorInfor.addressClinic = inputData.addressClinic;
                     doctorInfor.nameClinic = inputData.nameClinic;
+                    doctorInfor.specialtyId = inputData.specialtyId
                     if (inputData.note) {
                         doctorInfor.note = inputData.note
                     }
@@ -103,7 +121,8 @@ let saveDetailInforDoctor = (inputData) => {
                         paymentId: inputData.selectedPayment,
                         addressClinic: inputData.addressClinic,
                         nameClinic: inputData.nameClinic,
-                        doctorId: inputData.doctorId
+                        doctorId: inputData.doctorId,
+                        specialtyId: inputData.specialtyId
                     })
                 }
                 resolve({
@@ -227,7 +246,11 @@ let getScheduleByDate = (doctorId, date) => {
                     },
                     include: [
                         { model: db.Allcode, as: 'timeTypeData', attributes: ['valueEn', 'valueVi'] },
-
+                        {
+                            model: db.User, as: 'doctorData', attributes: {
+                                exclude: ['password', 'image']
+                            },
+                        }
                     ],
                     raw: true,
                     nest: true

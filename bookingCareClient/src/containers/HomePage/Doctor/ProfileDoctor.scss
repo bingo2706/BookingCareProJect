@@ -1,7 +1,7 @@
 .profile-doctor-container{
     .intro-doctor{
         display: flex;
-        padding: 0 10px 10px 10px;
+        padding: 0 10px 0px 10px;
         .content-left{
             width: 20%;
             background: center center no-repeat;
@@ -33,6 +33,12 @@
     }
     .price{
         font-weight: 600;
+    }
+    .see-more{
+        margin-left: 19px;
+        color: rgb(4, 121, 255);
+        cursor: pointer;
+       
     }
     .time-content{
         

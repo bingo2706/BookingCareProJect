@@ -8,7 +8,7 @@ class About extends Component {
         return (
             <div className="section-share section-about">
                 <div className="section-about-header">
-                    Truyền thông nói về FrontEnd Programmer
+                    <FormattedMessage id="homepage.media" /> FrontEnd Programmer
                 </div>
                 <div className="section-about-content">
                     <div className="content-left">
@@ -19,8 +19,7 @@ class About extends Component {
                             allowfullscreen></iframe>
                     </div>
                     <div className="content-right">
-                        <p>"Có ý kiến cho rằng, các thông tin về bác sĩ và cơ sở y tế đầy rẫy trên Internet. Và người bệnh cũng không gặp khó khăn gì trong việc tìm hiểu thông tin và đặt lịch khám với bác sĩ, cơ sở y tế.
-                            Vậy tại sao người dùng lại cần đặt lịch khám thông qua hệ thống đặt khám như BookingCare?"</p>
+                        <p>"<FormattedMessage id="homepage.media-content" />"</p>
                     </div>
                 </div>
             </div>

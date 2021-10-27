@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import * as actions from '../../../store/actions'
-import { withRouter, WithRouter } from 'react-router';
+import { withRouter } from 'react-router';
 class OutStandingDoctor extends Component {
     constructor(props) {
         super(props)

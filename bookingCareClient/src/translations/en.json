@@ -56,7 +56,12 @@
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
-        "more-infor": "More Infor"
+        "more-infor": "More Infor",
+        "specialty": "Popular Specialty",
+        "facility": "Outstanding medical facility",
+        "handbook": "Handbook",
+        "media": "Medical talk about",
+        "media-content": "There is an opinion that information about doctors and medical facilities is rife on the Internet. And patients do not have any difficulty in finding out information and booking an appointment with doctors and medical facilities. So why do users need to book an appointment through a booking system like BookingCare?"
     },
     "manage-schedule": {
         "title": "Manage doctor's examination plan",

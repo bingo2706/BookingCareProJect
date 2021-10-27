@@ -8,14 +8,17 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            description: {
+            descriptionHTML: {
+                type: Sequelize.TEXT('long')
+            },
+            descriptionMarkdown: {
                 type: Sequelize.TEXT('long')
             },
             name: {
                 type: Sequelize.STRING
             },
             image: {
-                type: Sequelize.BLOB
+                type: Sequelize.BLOB('long')
             },
             createdAt: {
                 allowNull: false,
