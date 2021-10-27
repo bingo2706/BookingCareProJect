@@ -5,12 +5,29 @@ import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { getTopClinicHomeService } from '../../../services/userService';
 class MedicalFacility extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dataClinic: []
+        }
+    }
+    async componentDidMount() {
+        let res = await getTopClinicHomeService(10)
+        if (res && res.errCode === 0) {
+            this.setState({
+                dataClinic: res.data
+            })
+        }
+    }
+    handleViewClinic = (data) => {
 
+    }
     render() {
         let settings = this.props.settings
-
+        let { language } = this.props
+        let { dataClinic } = this.state
         return (
             <div className="section-share section-medical-facility">
                 <div className="section-container">
@@ -20,34 +37,18 @@ class MedicalFacility extends Component {
                     </div>
                     <div className="section-body">
                         <Slider {...settings} >
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
-                            <div className="section-customize">
-                                <div className="bg-image section-medical-facility"></div>
-                                <div>Hệ thống Y tế Thu Cúc</div>
-                            </div>
+                            {dataClinic && dataClinic.length > 0 &&
+                                dataClinic.map((item, index) => {
+                                    return (
+                                        <div onClick={() => this.handleViewClinic(item)} key={index} className="section-customize">
+                                            <div style={{ backgroundImage: `url(${item.image})` }} className="bg-image section-medical-facility"></div>
+                                            <div>{item.name}</div>
+                                        </div>
+                                    )
+                                })
+
+                            }
+
                         </Slider>
                     </div>
 
