@@ -49,7 +49,7 @@ let getAllDoctors = () => {
 let checkRequiredFields = (inputData) => {
     let arr = ['doctorId', 'contentHTML', 'contentMarkdown',
         'action', 'selectedPrice', 'selectedProvince', 'selectedPayment',
-        'nameClinic', 'addressClinic', 'specialtyId']
+        'nameClinic', 'addressClinic', 'specialtyId', 'clinicId']
     let isValid = true;
     let element = ''
     for (let i = 0; i < arr.length; i++) {
@@ -109,7 +109,8 @@ let saveDetailInforDoctor = (inputData) => {
                     doctorInfor.paymentId = inputData.selectedPayment;
                     doctorInfor.addressClinic = inputData.addressClinic;
                     doctorInfor.nameClinic = inputData.nameClinic;
-                    doctorInfor.specialtyId = inputData.specialtyId
+                    doctorInfor.specialtyId = inputData.specialtyId;
+                    doctorInfor.clinicId = inputData.clinicId
                     if (inputData.note) {
                         doctorInfor.note = inputData.note
                     }
@@ -122,7 +123,8 @@ let saveDetailInforDoctor = (inputData) => {
                         addressClinic: inputData.addressClinic,
                         nameClinic: inputData.nameClinic,
                         doctorId: inputData.doctorId,
-                        specialtyId: inputData.specialtyId
+                        specialtyId: inputData.specialtyId,
+                        clinicId: inputData.clinicId
                     })
                 }
                 resolve({

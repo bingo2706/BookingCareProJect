@@ -71,6 +71,12 @@ const createNewClinic = (data) => {
 const getTopClinicHomeService = (limit) => {
     return axios.get(`/api/top-clinic-home?limit=${limit}`)
 }
+const getAllClinicService = () => {
+    return axios.get(`/api/get-all-clinic`)
+}
+const getDetailClinicByIdService = (id) => {
+    return axios.get(`/api/get-detail-clinic-by-id?id=${id}`)
+}
 export {
     handleLoginApi, getAllUsers,
     createNewUserService, deleteUserService, getAllCodeService, editUserService,
@@ -80,5 +86,6 @@ export {
     getExtraInforDoctorById, getProfileDoctorById,
     postBookAppoinment, postVerifyBookAppoinment,
     createNewSpecialty, getTopSpecialtyHomeService,
-    getAllSpecialtyService, getDetailSpecialtyByIdService, createNewClinic, getTopClinicHomeService
+    getAllSpecialtyService, getDetailSpecialtyByIdService, createNewClinic, getTopClinicHomeService, getAllClinicService,
+    getDetailClinicByIdService
 }

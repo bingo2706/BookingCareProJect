@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getTopClinicHomeService } from '../../../services/userService';
+import { withRouter } from 'react-router';
 class MedicalFacility extends Component {
     constructor(props) {
         super(props)
@@ -22,7 +23,9 @@ class MedicalFacility extends Component {
         }
     }
     handleViewClinic = (data) => {
-
+        if (this.props.history) {
+            this.props.history.push(`detail-clinic/${data.id}`)
+        }
     }
     render() {
         let settings = this.props.settings
@@ -70,4 +73,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MedicalFacility));

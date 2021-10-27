@@ -61,7 +61,70 @@ let getTopClinicHome = (limit) => {
         }
     })
 }
+let getAllClinic = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+
+            let data = await db.Clinic.findAll({
+                attributes: {
+                    exclude: ['image']
+                }
+            })
+
+            resolve({
+                errCode: 0,
+                errMessage: 'ok',
+                data: data
+            })
+
+
+
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+let getDetailClinicyById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!id) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameters !'
+                })
+            } else {
+
+                let data = await db.Clinic.findOne({
+                    where: { id: id },
+
+                })
+                if (data && data.image) {
+                    data.image = new Buffer(data.image, 'base64').toString('binary');
+                }
+                if (data) {
+                    let doctorClinic = []
+                    doctorClinic = await db.Doctor_Infor.findAll({
+                        where: { specialtyId: id },
+                        attributes: ['doctorId'],
+                    })
+                    data.doctorClinic = doctorClinic
+                } else data = {}
+                resolve({
+                    errCode: 0,
+                    errMessage: 'ok',
+                    data: data
+                })
+
+
+            }
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
 module.exports = {
     getTopClinicHome: getTopClinicHome,
-    createClinic: createClinic
+    createClinic: createClinic,
+    getAllClinic: getAllClinic,
+    getDetailClinicyById: getDetailClinicyById
 }
