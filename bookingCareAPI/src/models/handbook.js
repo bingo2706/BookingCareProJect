@@ -3,20 +3,22 @@ const {
     Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class Specialty extends Model {
+    class Handbook extends Model {
 
         static associate(models) {
-            Specialty.hasMany(models.Doctor_Infor, { foreignKey: 'specialtyId', as: 'specialtyData' })
+            // define association here
         }
     };
-    Specialty.init({
+    Handbook.init({
+        shortdescription: DataTypes.TEXT('long'),
         descriptionHTML: DataTypes.TEXT('long'),
         descriptionMarkdown: DataTypes.TEXT('long'),
-        name: DataTypes.STRING,
         image: DataTypes.BLOB('long'),
+        title: DataTypes.STRING,
+        categoryId: DataTypes.STRING
     }, {
         sequelize,
-        modelName: 'Specialty',
+        modelName: 'Handbook',
     });
-    return Specialty;
+    return Handbook;
 };

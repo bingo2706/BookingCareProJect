@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
 import logo from '../../assets/logo.svg';
@@ -25,18 +25,24 @@ class HomeHeader extends Component {
                             <img className="header-logo" src={logo} onClick={() => this.HandleReturnToHome()} />
                         </div>
                         <div className="center-content">
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="homeheader.speciality" /></b></div>
-                                <div className="subs-title"><FormattedMessage id="homeheader.search-doctor" /></div>
-                            </div>
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="homeheader.health-facility" /></b></div>
-                                <div className="subs-title"><FormattedMessage id="homeheader.select-room" /></div>
-                            </div>
-                            <div className="child-content">
-                                <div><b><FormattedMessage id="homeheader.doctor" /></b></div>
-                                <div className="subs-title"><FormattedMessage id="homeheader.select-doctor" /></div>
-                            </div>
+                            <Link to={`/specialty`} >
+                                <div className="child-content">
+                                    <div><b><FormattedMessage id="homeheader.speciality" /></b></div>
+                                    <div className="subs-title"><FormattedMessage id="homeheader.search-doctor" /></div>
+                                </div>
+                            </Link>
+                            <Link to={`/clinic`} >
+                                <div className="child-content">
+                                    <div><b><FormattedMessage id="homeheader.health-facility" /></b></div>
+                                    <div className="subs-title"><FormattedMessage id="homeheader.select-room" /></div>
+                                </div>
+                            </Link>
+                            <Link to={`/all-doctor`} >
+                                <div className="child-content">
+                                    <div><b><FormattedMessage id="homeheader.doctor" /></b></div>
+                                    <div className="subs-title"><FormattedMessage id="homeheader.select-doctor" /></div>
+                                </div>
+                            </Link>
                             <div className="child-content">
                                 <div><b><FormattedMessage id="homeheader.fee" /></b></div>
                                 <div className="subs-title"><FormattedMessage id="homeheader.check-health" /></div>

@@ -35,8 +35,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            a{
+                text-decoration: none;
+                color: black;
+            }
             .child-content{
+                cursor: pointer;
+                
+                
                 .subs-title{
                     font-weight: 400;
                     font-size: 12px;

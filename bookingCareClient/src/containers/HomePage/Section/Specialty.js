@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Slider from 'react-slick';
@@ -39,7 +39,7 @@ class Specialty extends Component {
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section"><FormattedMessage id="homepage.specialty" /></span>
-                        <button className="btn-section"><FormattedMessage id="homepage.more-infor" /></button>
+                        <Link to={`/specialty`} style={{ textDecoration: 'none', color: 'black' }}><button className="btn-section"><FormattedMessage id="homepage.more-infor" /></button></Link>
                     </div>
                     <div className="section-body">
                         <Slider {...settings} >

@@ -35,9 +35,37 @@ let getAllDoctors = () => {
             let doctos = await db.User.findAll({
                 where: { roleId: 'R2' },
                 attributes: {
-                    exclude: ['password', 'image']
+                    exclude: ['password']
                 },
+                include: [
+
+
+                    {
+                        model: db.Allcode, as: 'positionData', attributes: ['valueEn', 'valueVi']
+                    },
+                    {
+                        model: db.Doctor_Infor,
+                        attributes: {
+                            exclude: ['id', 'doctorId']
+                        },
+                        include: [
+
+                            { model: db.Specialty, as: 'specialtyData' },
+
+
+                        ]
+                    },
+
+                ],
+                raw: false,
+                nest: true
             })
+            if (doctos && doctos.length > 0) {
+                doctos = doctos.map(item => {
+                    item.image = new Buffer(item.image, 'base64').toString('binary');
+                    return item;
+                })
+            }
             resolve({
                 errCode: 0,
                 data: doctos
