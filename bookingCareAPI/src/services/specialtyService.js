@@ -64,9 +64,7 @@ let getAllSpecialty = () => {
         try {
 
             let data = await db.Specialty.findAll({
-                attributes: {
-                    exclude: ['image']
-                }
+
             })
 
             resolve({

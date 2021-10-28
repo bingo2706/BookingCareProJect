@@ -28,6 +28,10 @@
             }
             .down{
                 padding-top: 10px;
+
+                .like-share-plugin{
+                    margin: 10px 0 20px 0;
+                }
             }
         }
     }
@@ -56,6 +60,6 @@
         }
     }
     .comment-doctor{
-        height: 50px;
+        height: 10px 100px;
     }
 }
