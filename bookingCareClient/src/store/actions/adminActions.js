@@ -339,3 +339,27 @@ export const getDoctorProvince = () => {
         }
     }
 }
+export const fetchCategoryStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("CATEGORY");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_CATEGORY_SUCCESS,
+                    data: res.data
+                })
+
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_CATEGORY_FAILED
+
+                })
+            }
+        } catch (error) {
+            dispatch({
+                type: actionTypes.FETCH_CATEGORY_FAILED
+
+            })
+        }
+    }
+}

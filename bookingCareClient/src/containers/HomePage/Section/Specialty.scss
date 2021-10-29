@@ -1,0 +1,11 @@
+.text-name{
+    display: -webkit-box;
+    max-width: 240px;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.625;
+  text-align: center;
+}

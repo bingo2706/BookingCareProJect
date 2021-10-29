@@ -8,7 +8,8 @@ class SearchSpecialty extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            dataSpecial: []
+            dataSpecial: [],
+            keyword: ''
         }
     }
     async componentDidMount() {
@@ -19,19 +20,37 @@ class SearchSpecialty extends Component {
             })
         }
     }
-    render() {
-        let { dataSpecial } = this.state
+    handleOnChangeInput = (event) => {
+        this.setState({
+            keyword: event.target.value
+        })
 
+    }
+    handleSearchSpecialty = (ketqua) => {
+        this.state.dataSpecial.forEach((item) => {
+            if (item.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1) {
+                ketqua.push(item)
+            }
+        })
+    }
+    render() {
+        let ketqua = []
+        this.handleSearchSpecialty(ketqua)
         return (
             <div className="search-specialty-container">
-                <div className="search-specialty-header">
-                    <Link to={'/home'}><div className="icon"><i className="fas fa-long-arrow-alt-left"></i></div></Link>
+                <div className="search-header-container">
+                    <div className="search-specialty-header">
+                        <Link to={'/home'}><div className="icon"><i className="fas fa-long-arrow-alt-left"></i></div></Link>
 
-                    <div className="search-specialty-header-name">Chuyên khoa</div>
+                        <div className="search-specialty-header-name">Chuyên khoa</div>
+                    </div>
+                    <div className="search-header">
+                        <input onChange={(event) => this.handleOnChangeInput(event)} type="text" placeholder="Tìm kiếm chuyên khoa" className="search-input" />
+                    </div>
                 </div>
                 <div className="search-specialty-body">
-                    {dataSpecial && dataSpecial.length > 0 &&
-                        dataSpecial.map((item, index) => {
+                    {ketqua && ketqua.length > 0 &&
+                        ketqua.map((item, index) => {
                             return (
                                 <Link to={`/detail-specialty/${item.id}`}>
                                     <div className="child-item" key={index}>

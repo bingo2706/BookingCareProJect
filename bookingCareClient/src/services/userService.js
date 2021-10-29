@@ -83,6 +83,13 @@ const getAllPatientForDoctor = (data) => {
 const PostSendRemedy = (data) => {
     return axios.post('/api/send-remedy', data)
 }
+
+const PostHandbook = (data) => {
+    return axios.post('/api/create-new-handbook', data)
+}
+const getTopHandbookService = (limit) => {
+    return axios.get(`/api/top-handbook-home?limit=${limit}`)
+}
 export {
     handleLoginApi, getAllUsers,
     createNewUserService, deleteUserService, getAllCodeService, editUserService,
@@ -93,5 +100,5 @@ export {
     postBookAppoinment, postVerifyBookAppoinment,
     createNewSpecialty, getTopSpecialtyHomeService,
     getAllSpecialtyService, getDetailSpecialtyByIdService, createNewClinic, getTopClinicHomeService, getAllClinicService,
-    getDetailClinicByIdService, getAllPatientForDoctor, PostSendRemedy
+    getDetailClinicByIdService, getAllPatientForDoctor, PostSendRemedy, PostHandbook, getTopHandbookService
 }

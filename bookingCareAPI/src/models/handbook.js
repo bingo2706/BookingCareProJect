@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     class Handbook extends Model {
 
         static associate(models) {
-            // define association here
+            Handbook.belongsTo(models.Allcode, { foreignKey: 'categoryId', targetKey: 'keyMap', as: 'categoryData' })
+            Handbook.belongsTo(models.User, { foreignKey: 'doctorId', targetKey: 'id', as: 'DoctorHandbookData' })
         }
     };
     Handbook.init({
@@ -15,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         descriptionMarkdown: DataTypes.TEXT('long'),
         image: DataTypes.BLOB('long'),
         title: DataTypes.STRING,
-        categoryId: DataTypes.STRING
+        categoryId: DataTypes.STRING,
+        doctorId: DataTypes.INTEGER
     }, {
         sequelize,
         modelName: 'Handbook',

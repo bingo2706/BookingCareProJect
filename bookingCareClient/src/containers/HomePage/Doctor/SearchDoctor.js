@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import '../Specialty/SearchSpecialty.scss';
 import { getAllDoctorsService } from '../../../services/userService';
+
 class SearchDoctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            dataDoctor: []
+            dataDoctor: [],
+
+            keyword: ''
         }
     }
     async componentDidMount() {
@@ -19,20 +22,40 @@ class SearchDoctor extends Component {
             })
         }
     }
-    render() {
-        let { dataDoctor } = this.state
+    handleOnChangeInput = (event) => {
+        this.setState({
+            keyword: event.target.value
+        })
 
-        console.log(dataDoctor)
+    }
+    handleSearchDoctor = (ketqua) => {
+        this.state.dataDoctor.forEach((item) => {
+            if (item.lastName.toLowerCase().indexOf(this.state.keyword.toLowerCase()) !== -1) {
+                ketqua.push(item)
+            }
+        })
+    }
+    render() {
+
+        let ketqua = []
+        this.handleSearchDoctor(ketqua)
+
         return (
             <div className="search-specialty-container">
-                <div className="search-specialty-header">
-                    <Link to={'/home'}><div className="icon"><i className="fas fa-long-arrow-alt-left"></i></div></Link>
+                <div className="search-header-container">
+                    <div className="search-specialty-header">
+                        <Link to={'/home'}><div className="icon"><i className="fas fa-long-arrow-alt-left"></i></div></Link>
 
-                    <div className="search-specialty-header-name">Bác sĩ</div>
+                        <div className="search-specialty-header-name">Bác sĩ</div>
+                    </div>
+                    <div className="search-header">
+                        <input onChange={(event) => this.handleOnChangeInput(event)} type="text" placeholder="Tìm kiếm bác sĩ" className="search-input" />
+                    </div>
                 </div>
+
                 <div className="search-specialty-body">
-                    {dataDoctor && dataDoctor.length > 0 &&
-                        dataDoctor.map((item, index) => {
+                    {ketqua && ketqua.length > 0 &&
+                        ketqua.map((item, index) => {
                             let fullname = `${item.firstName} ${item.lastName}`
                             return (
                                 <Link to={`/detail-doctor/${item.id}`}>

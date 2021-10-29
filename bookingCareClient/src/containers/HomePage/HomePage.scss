@@ -76,7 +76,7 @@
                     height: 120px;
                 }
                 &.section-handbook{
-                    background-image: url('../../assets/221918-test-pcr-covid.jpg');
+                   // background-image: url('../../assets/221918-test-pcr-covid.jpg');
                 }
             }
         }
@@ -134,6 +134,8 @@
     .section-customize{
         padding: 5px;
         cursor: pointer;
+
+      
         .customize-border{
            padding: 10px;
            border: 1px solid #eee;

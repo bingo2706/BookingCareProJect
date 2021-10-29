@@ -9,6 +9,8 @@ import DoctorSchedule from '../Doctor/DoctorSchedule';
 import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getDetailSpecialtyByIdService, getAllCodeService } from '../../../services/userService';
+import Short_des_1 from '../../../components/Short_des_1';
+import Short_des_2 from '../../../components/Short_des_2';
 class DetailSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -110,6 +112,8 @@ class DetailSpecialty extends Component {
                             </div>
                         }
                     </div>
+                    <Short_des_1 />
+
                     <div className="search-sp-doctor form-group col-2">
                         <select className="form-control" onChange={(event) => this.handleOnchangeSelect(event)}>
                             {listProvice && listProvice.length > 0 &&

@@ -9,12 +9,12 @@
             "manage-clinic": "Quản lý phòng khám",
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
-            "handbook": "Cẩm nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "handbook": "Cẩm nang"
         },
         "doctor": {
             "manage-schedule": "Quản lý kế hoạch khám bệnh",
-            "manage-patient": "Quản lý bệnh nhân khám bệnh"
+            "manage-patient": "Quản lý bệnh nhân khám bệnh",
+            "manage-handbook": "Quản lý cẩm nang"
         }
     },
     "homeheader": {

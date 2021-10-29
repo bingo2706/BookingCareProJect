@@ -25,7 +25,12 @@ module.exports = {
                 type: Sequelize.STRING
             },
             categoryId: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+            doctorId: {
+                type: Sequelize.INTEGER,
+                allowNull: false
             },
             createdAt: {
                 allowNull: false,

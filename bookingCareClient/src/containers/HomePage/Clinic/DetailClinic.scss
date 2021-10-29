@@ -5,31 +5,7 @@
     background-color: #eee;
     display: flex;
     flex-direction: column;
-    .short-des-1{
-    
-        color: #3c763d;
-        background-color: #dff0d8;
-        padding: 15px;
-        border-radius: 5px;
-        display: flex;
-        margin-bottom: 10px;
-        border: 1px solid #c6d9e9;
-        .text{
-            margin-left: 20px;
-        }
-        .icon{
-            color: orange;
-            font-size: 18px;
-        }
-    }
-    .short-des-2{
-        padding: 15px;
-            background: #ffc;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            color: #333;
-            border: 1px solid rgb(240, 224, 0);
-    }
+   
     .intro-clinic{
         padding: 10px;
        background-color: #fff;

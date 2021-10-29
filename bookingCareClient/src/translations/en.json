@@ -9,12 +9,12 @@
             "manage-clinic": "Manage Clinics",
             "specialty": "Specialties",
             "manage-specialty": "Manage Specialties",
-            "handbook": "Hanbook",
-            "manage-handbook": "Manage handbook"
+            "handbook": "Hanbook"
         },
         "doctor": {
             "manage-schedule": "Manage Doctor's schedule",
-            "manage-patient": "Manage Doctor's patient"
+            "manage-patient": "Manage Doctor's patient",
+            "manage-handbook": "Manage handbook"
         }
     },
     "homeheader": {

@@ -10,6 +10,8 @@ import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getDetailClinicByIdService } from '../../../services/userService';
 import HomeFooter from '../HomeFooter';
+import Short_des_1 from '../../../components/Short_des_1';
+import Short_des_2 from '../../../components/Short_des_2';
 class DetailClinic extends Component {
     constructor(props) {
         super(props)
@@ -104,23 +106,8 @@ class DetailClinic extends Component {
                             Đặt lịch khám
                         </div>
                     </div>
-                    <div className="short-des-1">
-                        <div className="icon">
-                            <i className="fas fa-lightbulb"></i>
-                        </div>
-                        <div className="text">
-                            BookingCare là Nền tảng Y tế Chăm sóc sức khỏe toàn diện kết nối người dùng với dịch vụ y tế - chăm sóc sức khỏe hiệu quả, tin cậy với trên 100 bệnh viện, phòng khám uy tín, hơn 600 bác sĩ chuyên khoa giỏi và hàng nghìn dịch vụ y tế chất lượng cao.
-                        </div>
-                    </div>
-                    <div className="short-des-2">
-                        <p>Từ nay, người bệnh có thể đặt lịch tại Khu khám bệnh theo yêu cầu, Bệnh viện Hữu nghị Việt Đức thông qua hệ thống đặt khám BookingCare.</p>
-                        <ul>
-                            <li>Được lựa chọn các giáo sư, tiến sĩ, bác sĩ chuyên khoa giàu kinh nghiệm</li>
-                            <li>Hỗ trợ đặt khám trực tuyến trước khi đi khám (miễn phí đặt lịch) </li>
-                            <li>Giảm thời gian chờ đợi khi làm thủ tục khám và ưu tiên khám trước</li>
-                            <li>Nhận được hướng dẫn chi tiết sau khi đặt lịch</li>
-                        </ul>
-                    </div>
+                    <Short_des_1 />
+                    <Short_des_2 />
                     {arrDoctorId && arrDoctorId.length > 0 &&
                         arrDoctorId.map((item, index) => {
                             return (
