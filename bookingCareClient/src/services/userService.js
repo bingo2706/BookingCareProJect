@@ -90,6 +90,18 @@ const PostHandbook = (data) => {
 const getTopHandbookService = (limit) => {
     return axios.get(`/api/top-handbook-home?limit=${limit}`)
 }
+const getDetailHandbookByIdService = (id) => {
+    return axios.get(`/api/get-detail-handbook-by-id?id=${id}`)
+}
+const getRelatedHandbook = (categoryId) => {
+    return axios.get(`/api/get-related-handbook?categoryId=${categoryId}`)
+}
+const getHandbookByCategoryId = (categoryId) => {
+    return axios.get(`/api/get-handbook-by-categoryId?categoryId=${categoryId}`)
+}
+const getAllHandbook = () => {
+    return axios.get(`/api/get-all-handbook`)
+}
 export {
     handleLoginApi, getAllUsers,
     createNewUserService, deleteUserService, getAllCodeService, editUserService,
@@ -100,5 +112,6 @@ export {
     postBookAppoinment, postVerifyBookAppoinment,
     createNewSpecialty, getTopSpecialtyHomeService,
     getAllSpecialtyService, getDetailSpecialtyByIdService, createNewClinic, getTopClinicHomeService, getAllClinicService,
-    getDetailClinicByIdService, getAllPatientForDoctor, PostSendRemedy, PostHandbook, getTopHandbookService
+    getDetailClinicByIdService, getAllPatientForDoctor, PostSendRemedy, PostHandbook, getTopHandbookService,
+    getDetailHandbookByIdService, getRelatedHandbook, getHandbookByCategoryId, getAllHandbook
 }

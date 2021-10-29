@@ -1,0 +1,193 @@
+.hand-book-header-container{
+  
+    background: #f6f6f6;
+    border-bottom: 1px solid #eee;
+    .nav-header{
+        color: #45C3D2;
+        padding-top: 60px;
+        margin: 0 200px;
+        
+        .box-nav{
+            padding: 8px;
+
+            i{
+                margin-right: 10px;
+            }
+            h1{
+                color: #5D5D5D;
+                font-size: 30px;
+                font-weight: 600;
+                padding-top: 10px;
+                border-top: 1px solid #eee;
+                margin-top: 4px;
+            }
+        }
+    }
+    
+}
+.box-container{
+    margin: 10px 400px 0 200px;
+
+    .note{
+        color: #45C3D2;
+    }
+    .box-shortdescription{
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    .box-markdown{
+        background-color: #FCFAF6;
+        padding: 10px 60px;
+        border-radius: 5px;
+        font-size: 18px;
+        img{
+            width: 100%;
+        }
+    }
+    .box-actors{
+        background-color: #E1F5FE;
+        padding: 10px 60px 30px 60px;
+        border-radius: 5px;
+     
+        h4{
+            font-weight: 600;
+        }
+        .box-bg-name-actors{
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            .bg-actors{
+                width: 64px;
+                height: 64px;
+                background: no-repeat center center;
+                background-size: cover;
+                background-color: #eee;
+                border-radius: 50%;
+            }
+            .box-name{
+                margin-left: 15px;
+                font-size: 16px;
+                .actors-name{
+                    font-weight: 600;
+                    
+                    margin-bottom: 10px;
+                }
+            }
+            
+        }
+    }
+    .box-related-handbook{
+        background-color: #FCFAF6;
+        padding: 40px 180px;
+        border-radius: 5px;
+        border-bottom: 5px solid #eee;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        h3{
+            font-weight: 600;
+            font-size: 30px;
+        }
+        .box-image-name{
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            .bg-image-related{
+                width: 200px;
+                height: 105px;
+                background: no-repeat center center;
+                background-size: cover;
+                background-color: #eee;
+            }
+            .bg-name-related{
+                font-weight: 600;
+                font-size: 15px;
+                margin-left: 10px;
+                max-width: 350px;
+            }
+        }
+    }
+    .box-category-handbook{
+        background-color: #fff !important;
+      
+        border-radius: 5px;
+       
+        a{
+            color: black;
+            text-decoration: none;
+        }
+       
+        .box-image-name{
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            .bg-image-related{
+                width: 200px;
+                height: 105px;
+                background: no-repeat center center;
+                background-size: cover;
+                background-color: #eee;
+            }
+            .bg-name-related{
+                font-weight: 600;
+                font-size: 15px;
+                margin-left: 10px;
+                max-width: 350px;
+            }
+        }
+    }
+    .box-category{
+        background-color: #f9f9f9;
+        padding-bottom: 30px;
+        h4{
+            font-weight: 600;
+            font-size: 16px;
+            padding: 30px 39px 0 39px;
+        }
+        ul{
+            display: block;
+            list-style: none;
+
+            li{
+                width: 50%;
+                display: block;
+                float: left;
+                color: #45C3D2;
+                padding: 5px 0;
+            }
+        }
+        .clear{
+            clear: both;
+        }
+    }
+    
+}
+.box-category-2{
+    background-color: #f9f9f9;
+    padding-bottom: 30px;
+    padding: 0 162px;
+    h4{
+        font-weight: 600;
+        font-size: 16px;
+        padding: 30px 39px 0 39px;
+    }
+    ul{
+        display: block;
+        list-style: none;
+
+        li{
+            width: 50%;
+            display: block;
+            float: left;
+            color: #45C3D2;
+            padding: 5px 0;
+        }
+    }
+    .clear{
+        clear: both;
+    }
+}

@@ -31,17 +31,19 @@ class HandBook extends Component {
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section"><FormattedMessage id="homepage.handbook" /></span>
-                        <button className="btn-section"><FormattedMessage id="homepage.more-infor" /></button>
+                        <Link to={'/handbook'}><button className="btn-section"><FormattedMessage id="homepage.more-infor" /></button></Link>
                     </div>
                     <div className="section-body">
                         <Slider {...settings} >
                             {dataHandbook && dataHandbook.length > 0 &&
                                 dataHandbook.map((item, index) => {
                                     return (
-                                        <div key={index} className="section-customize">
-                                            <div style={{ backgroundImage: `url(${item.image})` }} className="bg-image section-handbook"></div>
-                                            <div className="text-name">{item.title}</div>
-                                        </div>
+                                        <Link to={`/detail-handbook/${item.id}`}>
+                                            <div key={index} className="section-customize">
+                                                <div style={{ backgroundImage: `url(${item.image})` }} className="bg-image section-handbook"></div>
+                                                <div className="text-name">{item.title}</div>
+                                            </div>
+                                        </Link>
                                     )
                                 })
 

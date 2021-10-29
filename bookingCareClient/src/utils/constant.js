@@ -11,8 +11,9 @@ export const path = {
     VERIFY_EMAIL_BOOKING: '/verify-booking',
     SEARCH_SPECIALTY: '/specialty',
     SEARCH_CLINIC: '/clinic',
-    SEARCH_DOCTOR: '/all-doctor'
-
+    SEARCH_DOCTOR: '/all-doctor',
+    CATEGORY_HANDBOOK: '/category-handbook/:id',
+    ALL_HANDBOOK: '/handbook'
 };
 
 export const languages = {

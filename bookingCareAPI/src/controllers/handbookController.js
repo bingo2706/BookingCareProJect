@@ -41,8 +41,53 @@ let getTopHandbookHome = async (req, res) => {
         })
     }
 }
+let getRelatedHandbook = async (req, res) => {
+    try {
+
+        let infor = await handbookService.getRelatedHandbook(req.query.categoryId);
+        return res.status(200).json(infor);
+    } catch (error) {
+        console.log(error)
+        return res.status(200).json({
+
+            errCode: -1,
+            errMessage: 'Error from server...'
+        })
+    }
+}
+let getHandbookByCategoryId = async (req, res) => {
+    try {
+
+        let infor = await handbookService.getHandbookByCategoryId(req.query.categoryId);
+        return res.status(200).json(infor);
+    } catch (error) {
+        console.log(error)
+        return res.status(200).json({
+
+            errCode: -1,
+            errMessage: 'Error from server...'
+        })
+    }
+}
+let getAllHandbook = async (req, res) => {
+    try {
+
+        let infor = await handbookService.getAllHandbook();
+        return res.status(200).json(infor);
+    } catch (error) {
+        console.log(error)
+        return res.status(200).json({
+
+            errCode: -1,
+            errMessage: 'Error from server...'
+        })
+    }
+}
 module.exports = {
     createHandbook: createHandbook,
     getDetailHanbookById: getDetailHanbookById,
-    getTopHandbookHome: getTopHandbookHome
+    getTopHandbookHome: getTopHandbookHome,
+    getRelatedHandbook: getRelatedHandbook,
+    getHandbookByCategoryId: getHandbookByCategoryId,
+    getAllHandbook: getAllHandbook
 }

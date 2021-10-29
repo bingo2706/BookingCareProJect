@@ -51,7 +51,10 @@
     .section-body{
         cursor: pointer;
 
-        
+        a{
+            color: #000;
+            text-decoration: none;
+        }
         .section-customize{
             &:hover{
                 color: #45C3D2;
